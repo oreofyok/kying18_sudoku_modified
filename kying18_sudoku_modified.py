@@ -160,12 +160,21 @@ if __name__ == '__main__':
     mode = input("select mode 1.auto 2.manual: ")
     used_r = [] ; used_c = [] ; used_g = []
     already = False
+    
+    ss = solve_sudoku(example_board)
+    
     if mode == "1":
-        print("solve =",solve_sudoku(example_board))
-        pprint(example_board)
+        if ss == True:
+            print("solve = CLEARED")
+            pprint(example_board)
+        elif ss == False:
+            print("this sodoku can't be solved")
     elif mode == "2":
-        solve_sudoku(example_board)
-        print("solve =",solve_sudoku2(example_board,used_r,used_c,used_g,example_board2))
+        if ss == True:
+            ss2 = solve_sudoku2
+            ss2(example_board,used_r,used_c,used_g,example_board2)
+        elif ss == False:
+            print("this sodoku can't be solved")
         
     
     
